@@ -19,6 +19,7 @@
 @import "@material/theme/mixins";
 @import "@material/theme/variables";
 @import "@material/typography/mixins";
+@import "./mixins";
 
 // postcss-bem-linter: define button
 .mdc-button {
@@ -86,14 +87,9 @@
 }
 
 .mdc-button--raised {
+  @include mdc-button-contained();
   @include mdc-elevation(2);
   @include mdc-elevation-transition;
-  @include mdc-ripple-base;
-  @include mdc-ripple-bg((pseudo: "::before", base-color: white, opacity: .32));
-  @include mdc-ripple-fg((pseudo: "::after", base-color: white, opacity: .32));
-  @include mdc-theme-prop(color, text-primary-on-dark);
-
-  background-color: black;
 
   &:hover,
   &:focus {
@@ -107,29 +103,11 @@
   fieldset:disabled &,
   &:disabled {
     @include mdc-elevation(0);
-    @include mdc-theme-prop(color, text-primary-on-dark);
-
-    background-color: rgba(black, .15);
-
-    @include mdc-theme-dark(".mdc-button") {
-      @include mdc-theme-prop(color, text-disabled-on-dark);
-
-      background-color: rgba(255, 255, 255, .15);
-    }
   }
+}
 
-  @include mdc-theme-dark(".mdc-button") {
-    @include mdc-ripple-base;
-    @include mdc-ripple-bg((pseudo: "::before", base-color: black, opacity: .32));
-    @include mdc-ripple-fg((pseudo: "::after", base-color: black, opacity: .32));
-    @include mdc-theme-prop(color, text-primary-on-light);
-
-    background-color: white;
-
-    &:not(.mdc-ripple-upgraded) {
-      -webkit-tap-highlight-color: rgba(black, .18);
-    }
-  }
+.mdc-button--unelevated {
+  @include mdc-button-contained();
 }
 
 .mdc-button--compact {
@@ -142,7 +120,7 @@
   line-height: 32px;
 }
 
-@each $theme-style in (primary, accent) {
+@each $theme-style in (primary, secondary) {
   // postcss-bem-linter: ignore
   .mdc-button--#{$theme-style} {
     $theme-value: map-get($mdc-theme-property-values, $theme-style);

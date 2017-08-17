@@ -63,6 +63,15 @@ semantically correct.
 </button>
 ```
 
+#### Unelevated Button
+
+```html
+<button class="mdc-button mdc-button--unelevated">
+  Unelevated button
+</button>
+```
+
+
 ### Button state
 
 #### Disabled
@@ -80,11 +89,11 @@ with and have no visual interaction effect.
 ### Colored
 
 MDC Buttons have a default baseline color, but it is also possible to adopt the
-application's primary or accent color by adding the `mdc-button--primary` or
-`mdc-button--accent` modifier.
+application's primary or secondary color by adding the `mdc-button--primary` or
+`mdc-button--secondary` modifier.
 
 ```html
-<button class="mdc-button mdc-button--accent">
+<button class="mdc-button mdc-button--secondary">
   Colored button
 </button>
 ```
@@ -124,8 +133,9 @@ The provided modifiers are:
 
 | Class                 | Description                                             |
 | --------------------- | ------------------------------------------------------- |
+| `mdc-button--raised`  | A contained button that is elevated upon the surface.   |
+| `mdc-button--unelevated`  | A contained button that sticks to the surface.      |
 | `mdc-button--dense`   | Compresses the button text to make it slightly smaller. |
-| `mdc-button--raised`  | Elevates the button and creates a colored background.   |
 | `mdc-button--compact` | Reduces the amount of horizontal padding in the button. |
 | `mdc-button--primary` | Colors the button with the primary color.               |
-| `mdc-button--accent`  | Colors the button with the secondary color.             |
+| `mdc-button--secondary`  | Colors the button with the secondary color.             |
